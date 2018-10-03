@@ -1,0 +1,24 @@
+/*---T(n)=O(log n)
+  ---input a and n, caculate the value of a^n.  (suppose n>0)
+*/
+public class Test {
+    public static int power(int a, int n){
+        int result = 0;
+        if (n==1)
+            result = a;
+        if (n>1){
+            result = power(a, n/2);
+            if(n%2==0)
+                result = result*result;
+            else
+                result = result*result*a;
+        }
+        return result;
+    }
+    public static void main(String []args){
+        int a = 2;
+        int n = 7;
+        System.out.println(power(a,n));
+    }
+}
+  
