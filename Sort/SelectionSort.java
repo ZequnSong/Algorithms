@@ -25,8 +25,10 @@ public class SelectionSort {
                 }
             }
             //swap position between minValue and array[i]
-            array[minIndex] = array[i];
-            array[i] = min;
+            if(minIndex != i){
+                array[minIndex] = array[i];
+                array[i] = min;
+            }
 
             System.out.print("result of "+ (i + 1) + "th comparison: ");
             display(array);
