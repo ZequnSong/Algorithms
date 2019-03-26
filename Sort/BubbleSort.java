@@ -15,7 +15,9 @@ public class BubbleSort {
     public static int [] sort(int[] array){
         //for loop here means how many loops in all do we need to compare
         for(int i = 1; i < array.length; i++){
+            
             //flag true means no exchange in current loop
+            //only used for showing the middle process
             boolean flag = true;
 
             //for loop here means the index of elements in each round of comparison
