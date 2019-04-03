@@ -48,5 +48,5 @@ public class ShellSort {
         int[] array = new int[20];
         randomInsert(array);
         shellSort(array);
-}
+    }
 }
