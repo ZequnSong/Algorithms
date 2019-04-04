@@ -12,13 +12,11 @@ public class BubbleSort {
      * @param array
      * @return
      */
-    public static int [] sort(int[] array){
-        //for loop here means how many loops in all do we need to compare
+    public static int []  sort(int[] array){
+        //for loop here means how many loops in all do we need to compare (N-1)
         for(int i = 1; i < array.length; i++){
-                       
-            //if the array is already sorted, the algorithm needs one more whole pass without any swap to know it is sorted.
-            //flag true means no swap in current loop, which means the array is sorted
-            boolean flag = true;
+            //flag true means no exchange in current loop (only used for showing the middle-result)
+            // boolean flag = true;
 
             //for loop here means the index of elements in each round of comparison
             //careful about the range of j is dynamic
@@ -27,13 +25,15 @@ public class BubbleSort {
                     int temp = array[j + 1];
                     array[j + 1] = array[j];
                     array[j] = temp;
-                    flag = false;
+                  //  flag = false;
                 }
             }
+            /*
             if(flag)
                 break;
             System.out.print("result of "+ i + "th comparison: ");
             display(array);
+            */
         }
         return array;
     }
