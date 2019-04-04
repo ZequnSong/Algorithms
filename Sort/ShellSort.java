@@ -4,13 +4,19 @@ import java.util.Arrays;
 
 /**
  *  Shell Sort
- *  h = h*3 + 1
+ *  two version: knuth increment and n/2 increment
  *  Author : Zequn Song
  *  Email : zsong73@gwu.edu
  */
 public class ShellSort {
+
+    /**
+     * knuth increment
+     * h = h*3 + 1
+     * @param array
+     */
     public static void shellSort(int[] array){
-        System.out.println("Original array is : " + Arrays.toString(array));
+        //System.out.println("Original array is : " + Arrays.toString(array));
         //find the initial value of h (increment)
         int h = 1;
         while(h*3+1 < array.length){
@@ -30,11 +36,37 @@ public class ShellSort {
                 //
                 array[j + h] = temp;
             }//end for
-            System.out.println("The result of h="+h+" sort: "+ Arrays.toString(array));
+            //System.out.println("The result of h="+h+" sort: "+ Arrays.toString(array));
             //decrease h
             h = h/3;
         }
-        System.out.println("Final result："+ Arrays.toString(array));
+        //System.out.println("Final result："+ Arrays.toString(array));
+    }
+
+    /**
+     * h = n/2
+     * @param array
+     */
+    public static void shellSort2(int[] array){
+        //System.out.println("Original array is : " + Arrays.toString(array));
+        //find the initial value of h (increment)
+        //decreasing h, until h = 1
+        for(int h = array.length/2 ;h > 0 ; h /= 2){
+            //h-sort, when h=1, equal to insertion sort
+            for(int i = h ; i < array.length ; i++){
+                int temp = array[i];
+                int j = i - h;
+                // array[j] (array[i-h]) means left neighbor of array[i]
+                while(j >= 0 &&  array[j] >= temp){
+                    array[j + h] = array[j];
+                    j -= h;
+                }
+                //
+                array[j + h] = temp;
+            }//end for
+            //System.out.println("The result of h="+h+" sort: "+ Arrays.toString(array));
+        }
+        //System.out.println("Final result："+ Arrays.toString(array));
     }
 
     public static void randomInsert(int[] array){
