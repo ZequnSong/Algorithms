@@ -29,9 +29,8 @@ public class SelectionSort {
                 array[minIndex] = array[i];
                 array[i] = min;
             }
-
-            System.out.print("result of "+ (i + 1) + "th comparison: ");
-            display(array);
+           //System.out.print("result of "+ (i + 1) + "th comparison: ");
+            //display(array);
         }
         return array;
     }
