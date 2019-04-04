@@ -13,7 +13,7 @@ public class InsertionSort {
      * @return
      */
     public static int[] sort(int[] array){
-       //start sorting from the element with index 1, cause the first element (index 0) is default sorted
+        //start sorting from the element with index 1, cause the first element (index 0) is default sorted
         for(int i = 1; i < array.length; i++){
             //j is the position for array[i] to insert in, start from the tail of the sorted elements
             int j = i - 1;
@@ -24,11 +24,11 @@ public class InsertionSort {
                 array[j+1] = array[j]; //data move backward
                 j--;
             }
-            //breaking out the loop means array[j-1] < tmp
+            //breaking out the loop means array[j-1] =< tmp
             //therefore array[j] is the position for array[i]
             array[j+1] = tmp;
-            System.out.print("result of "+ i  + "th comparison: ");
-            display(array);
+            //System.out.print("result of "+ i  + "th comparison: ");
+            //display(array);
         }
         return array;
     }
