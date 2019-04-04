@@ -8,7 +8,10 @@ import Sort.QuickSort.QuickSort;
 import Sort.SelectionSort.SelectionSort;
 import Sort.ShellSort.ShellSort;
 import java.util.Arrays;
-
+/**
+ * a test applet for all sort algorithm
+ * showing the performance of each algorithm
+ */
 public class test {
 
 
@@ -99,23 +102,17 @@ public class test {
         return a;
     }
 
-
-
     public static void main(String[] args){
         int size = 10000000;
         int[] array = new int[size];
         randomInsert(array);
-
-
-
         //bubble();
-        //insertion();
-        merge(copy(array));
+        //insertion(); 
         //select();
+        merge(copy(array));
         shell(copy(array));
         shell2(copy(array));
         quick(copy(array));
         quick2(copy(array));
-
     }
 }
