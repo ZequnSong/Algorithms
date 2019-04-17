@@ -1,6 +1,8 @@
 package Sort;
 
 import Sort.BubbleSort.BubbleSort;
+import Sort.HeapSort.Heap;
+import Sort.HeapSort.Node;
 import Sort.InsertionSort.InsertionSort;
 import Sort.MergeSort.MergeSort;
 import Sort.QuickSort.AdvancedQuickSort;
@@ -8,6 +10,7 @@ import Sort.QuickSort.QuickSort;
 import Sort.SelectionSort.SelectionSort;
 import Sort.ShellSort.ShellSort;
 import java.util.Arrays;
+
 /**
  * a test applet for all sort algorithm
  * showing the performance of each algorithm
@@ -18,7 +21,7 @@ public class test {
     public static void randomInsert(int[] array){
         int i = 0;
         while(i < array.length){
-            array[i++] = (int)(1 + Math.random()*1000000);
+            array[i++] = (int)(1 + Math.random()*array.length);
         }
     }
 
@@ -95,6 +98,22 @@ public class test {
         System.out.println();
     }
 
+    public static void heapSort(int[] array){
+        long start = System.nanoTime();
+        Heap heap = new Heap(array.length);
+        for(int i = 0; i < array.length; i++) {
+            Node newNode = new Node(array[i]) ;
+            heap.insertAt(i,newNode);
+            heap.incrementSize();
+        }
+        heap.heapSort();
+        long end = System.nanoTime();
+        System.out.println("Heap Sort Time:" + (end - start));
+        System.out.println("Advanced version");
+        System.out.println();
+    }
+
+
     public static int[] copy(int[] array){
         int[] a = new int[array.length];
         for(int i=0;i<array.length;i++)
@@ -102,17 +121,25 @@ public class test {
         return a;
     }
 
+
+
+
+
     public static void main(String[] args){
         int size = 10000000;
         int[] array = new int[size];
         randomInsert(array);
+
         //bubble();
-        //insertion(); 
+        //insertion();
         //select();
+        
         merge(copy(array));
         shell(copy(array));
         shell2(copy(array));
         quick(copy(array));
         quick2(copy(array));
+        heapSort(copy(array));
+
     }
 }
