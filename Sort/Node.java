@@ -1,5 +1,8 @@
 package Sort.HeapSort;
 
+/**
+*for Heap Sort
+**/
 public class Node {
     private int iData;
     public Node(int key) {
