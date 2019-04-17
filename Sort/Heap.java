@@ -1,5 +1,7 @@
 package Sort.HeapSort;
-
+/**
+*for Heap Sort
+**/
 public class Heap {
     private Node[] heapArray;
     private int maxSize;
