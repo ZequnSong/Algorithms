@@ -1,8 +1,4 @@
 /**
- * CSCI-6511 Artificial Intelligence
- *
- * Project4 ---- HMMs and Dice
- *
  * We have three dice D1, D2, D3 with different probability of rolling matrix
  * Each time we roll a dice, we need to decide:
  * 1) keep the same die (with probability p)
