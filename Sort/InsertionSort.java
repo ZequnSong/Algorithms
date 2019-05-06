@@ -20,7 +20,7 @@ public class InsertionSort {
             int tmp = array[i];
             //from the tail of the sorted, all elements that bigger than array[i] move one step back
             //stop until find one smaller than array[i]
-            while(j >= 0 && array[j] > tmp){
+            while(j >= 0 && array[j] > tmp){ // careful: array[j] > tmp not array[i], beacause array[i] will change
                 array[j+1] = array[j]; //data move backward
                 j--;
             }
