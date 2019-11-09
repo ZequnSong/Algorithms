@@ -1,5 +1,13 @@
 找图的关节点的思路：
 
+* 简单思路： 尝试删除点，看看删后图是否连通 O(V*(V+E))
+1) For every vertex v, do following
+.a) Remove v from graph
+.b) See if the graph remains connected (We can either use BFS or DFS)
+.c) Add v back to the graph
+
+
+* 高效思路 ：O(V+E)
 * 可以理解为点u将图分为两部分，将其中一部分为u的祖先，另一部分为u的后代
 * 若后代没有一条不经过u的边(称之为back edge)能连接u的任何一个祖先，则u是关节点
 * 特别的，当u是根节点(或是我们第一个访问的点)，u没有祖先的时候，若u有超过两个子树(不是子节点，比如三个点两两相连，u有两个子节点但u不是关节点)，则u是关节点
