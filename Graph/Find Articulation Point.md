@@ -43,6 +43,9 @@ DFS:
 * parent[] 记录每个点的父节点(最近祖先)
 * ap[] 存放结果，记录每个点是否是关节点
  
+ * follow-up
+ * 若求图中的桥，即去掉该边之后，整个图变为非连通
+ * 修改条件即可：if (low[v] > disc[u]) ap[u] = true;
 
 ```
 import java.util.Iterator;
