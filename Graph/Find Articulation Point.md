@@ -31,7 +31,8 @@ DFS:
       * 若u是根，且u有超过两个子树，u是关节点
       * 若u不是根，且 low[v] >= disc[u] (u的child v不能经back edge到达u的祖先，或有回边但只到达u)则u是关节点
  
-  * 若u的邻接点v已被访问过且v点不是u的父节点，则此分支可能是u祖先或u的后代，
+  * 若u的邻接点v已被访问过，则此分支可能是u祖先或u的后代，
+    * 若为u的祖先，若且v点是u的父节点，由于我们只能通过backtrack回边来到达u点或更早的点，但parent->child 不是回边，所以需要排除是父节点的情况
     * 若为u的祖先，则 disc[v] 很可能小于 low[u]，意味着u有回边到达v，为保持low[u]的正确性，low[u]  = Math.min(low[u], disc[v]);
     * 若为u的后代，则 disc[v] 肯定大于 low[u]，low[u]  = Math.min(low[u], disc[v])=low[u] 不影响结果
     
@@ -45,7 +46,7 @@ DFS:
  
  * follow-up
  * 若求图中的桥，即去掉该边之后，整个图变为非连通
- * 修改条件即可：if (low[v] > disc[u]) ap[u] = true;
+ * 修改条件即可：如果该边的v端无法通过其他边到达u或u之前的点，则该边是bridge，if (low[v] > disc[u]) ap[u] = true;
 
 ```
 import java.util.Iterator;
